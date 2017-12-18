@@ -9,7 +9,18 @@ var coffeeShop = {
   },
 
   makeDrink: function (drinkType) {
-    // TODO: Finish this method
+    for (drink in this.drinkRequirements) {
+      if (drink === drinkType) {
+        while (this.beans >= this.drinkRequirements[drinkType]) {
+          this.beans -= this.drinkRequirements[drinkType];
+          console.log(this.beans);
+          return;
+        }
+        alert("Sorry, we're all out of beans!"); 
+        return;
+      }
+    }
+    alert("Sorry, we don't make " + drinkType);
   }
 }
 
